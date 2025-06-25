@@ -16,5 +16,5 @@ MyApplicationWindow {
         //MyTextArea{id: txtArea;width: 280; text: "spremeni ta text in sprememba bo vidna v dialogu"; onEditingFinished: tt.messageText=txtArea.text}
     }
 
-    MyColorChooserDialog{id: tt;x: 0;y:0;oldColor: "red";onOpened: console.log("x:"+x+"; y:"+y+" wid:"+width+"/ hei:"+height)}
+    MyColorChooserDialog{id: tt;x: 0;y:0;oldColor: "red";onOpened: console.log(tt.width)}
 }

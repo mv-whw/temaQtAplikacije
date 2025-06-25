@@ -35,31 +35,41 @@ MyPopUp {
                 color: MyTheme.useDarkTheme? Qt.rgba(0.0,0.0,0.0,0.8): Qt.rgba(0.5,0.5,0.5,0.8)
     }
 
-    /*onParentWidthChanged: {
-        if(myDialog.x+myDialog.width>myDialog.parentWidth)
-            myDialog.x=myDialog.parentWidth-myDialog.width
+    function fixXPosition():void
+    {
+        if(myDialog.opened)
+        {
+            if(myDialog.x+myDialog.width>myDialog.parentWidth)
+                myDialog.x=myDialog.parentWidth-myDialog.width
+        }
+    }
+
+    function fixYPosition():void
+    {
+        if(myDialog.opened)
+        {
+            if(myDialog.y+myDialog.height>myDialog.parentHeight)
+                myDialog.y=myDialog.parentHeight-myDialog.height
+        }
+    }
+
+    onParentWidthChanged: {
+        myDialog.fixXPosition()
     }
     onParentHeightChanged: {
-        if(myDialog.y+myDialog.height>myDialog.parentHeight)
-            myDialog.y=myDialog.parentHeight-myDialog.height
-    }
-    onWidthChanged: {
-        if(myDialog.x+myDialog.width>myDialog.parentWidth)
-            myDialog.x=myDialog.parentWidth-myDialog.width
-    }
-    onHeightChanged: {
-        if(myDialog.y+myDialog.height>myDialog.parentHeight)
-            myDialog.y=myDialog.parentHeight-myDialog.height
+        myDialog.fixYPosition()
     }
     onXChanged: {
-        if(myDialog.x+myDialog.width>myDialog.parentWidth)
-            myDialog.x=myDialog.parentWidth-myDialog.width
+        myDialog.fixXPosition()
     }
     onYChanged: {
-        if(myDialog.y+myDialog.height>myDialog.parentHeight)
-            myDialog.y=myDialog.parentHeight-myDialog.height
-    }*/
+        myDialog.fixYPosition()
+    }
 
+    onOpened: {
+        myDialog.fixXPosition()
+        myDialog.fixYPosition()
+    }
 
     Column{
         id: dialogB
