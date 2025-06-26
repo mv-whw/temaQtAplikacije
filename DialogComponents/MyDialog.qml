@@ -41,6 +41,17 @@ MyPopUp {
         {
             if(myDialog.x+myDialog.width>myDialog.parentWidth)
                 myDialog.x=myDialog.parentWidth-myDialog.width
+            if(myDialog.x<0)
+            {
+                if((myDialog.parentWidth-myDialog.width)>myDialog.x)
+                {
+                    if(myDialog.parentWidth-myDialog.width>=0)
+                        myDialog.x=0
+                    else
+                        if(myDialog.x<(myDialog.parentWidth-myDialog.width))
+                            myDialog.x=myDialog.parentWidth-myDialog.width
+                }
+            }
         }
     }
 

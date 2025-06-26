@@ -40,18 +40,33 @@ MyDialog{
         MyLabel{text: qsTr("trenutna barva");}
         MyLabel{text: qsTr("nova barva"); }
         MyRectangle{
-            id: oldColorRect
-            width: 88
-            height: 88
-
+            borderWidth: 0
+            color: "white"
+            width: 92
+            height: 92
+            MyRectangle{
+                id: oldColorRect
+                width: 88
+                height: 88
+                anchors.centerIn: parent
+            }
         }
-
 
         MyRectangle{
-            id: newColorRect
-            width: 88
-            height: 88
+            borderWidth: 0
+            color: "white"
+            width: 92
+            height: 92
+            MyRectangle{
+                id: newColorRect
+                width: 88
+                height: 88
+                anchors.centerIn: parent
+            }
         }
+
+        MyLabel{text: qsTr("#barve: ")+oldColorRect.color}
+        MyLabel{text: qsTr("#barve: ")+newColorRect.color}
 
         function updateNewColorRect()
         {
