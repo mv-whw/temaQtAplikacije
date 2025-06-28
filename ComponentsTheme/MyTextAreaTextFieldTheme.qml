@@ -15,7 +15,7 @@ QtObject {
 
         }
         lightTheme: MyLabelLightTheme{
-
+            highlightColor: "lightblue"
         }
     }
 }

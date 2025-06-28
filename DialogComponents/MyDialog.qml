@@ -130,6 +130,7 @@ MyPopUp {
             topPadding: 10
             bottomPadding: 10
             rightPadding: 5
+            leftPadding: 5
             anchors.right: parent.right
 
             onClickedOn: (clickBtn)=>{

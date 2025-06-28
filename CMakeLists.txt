@@ -5,6 +5,8 @@ project(temaAplikacije VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set_source_files_properties(MyTheme.qml PROPERTIES QT_QML_SINGLETON_TYPE ON)
 find_package(Qt6 REQUIRED COMPONENTS Quick Svg)
+find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
 qt_standard_project_setup(REQUIRES 6.9)
 
@@ -57,6 +59,10 @@ qt_add_qml_module(apptemaAplikacije
         QML_FILES BasicComponents/MyTextArea.qml
         QML_FILES ComponentsTheme/MyTextAreaTextFieldTheme.qml
         QML_FILES BasicComponents/MyColorChooserDialog.qml
+        SOURCES myapp.h myapp.cpp
+        SOURCES
+        QML_FILES BasicComponents/MyTextField.qml
+        QML_FILES BasicComponents/MyClearTextFieldButton.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -73,6 +79,9 @@ set_target_properties(apptemaAplikacije PROPERTIES
 target_link_libraries(apptemaAplikacije
     PRIVATE Qt6::Quick Qt6::Svg
 )
+target_link_libraries(apptemaAplikacije PRIVATE Qt6::Core)
+target_link_libraries(apptemaAplikacije PRIVATE Qt6::Core)
+
 
 include(GNUInstallDirs)
 install(TARGETS apptemaAplikacije
