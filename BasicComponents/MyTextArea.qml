@@ -9,6 +9,7 @@ ScrollView {
     property alias placeholderText: myTextArea.placeholderText
     property bool selectAllOnFocus: true
     property int maxLines: 5
+    property alias textAreaFocus: myTextArea.focus
 
     TextArea{
         id: myTextArea
@@ -31,9 +32,9 @@ ScrollView {
         wrapMode: TextArea.WrapAtWordBoundaryOrAnywhere
         font.pixelSize: MyTheme.textFieldAreaTheme.label.fontSize
         onEditingFinished: {
-            myTextAreaView.editingFinished()
-            if(myTextArea.focus)
-                myTextArea.focus=false
+            //myTextAreaView.editingFinished()
+            // if(myTextArea.focus)
+            //     myTextArea.focus=false
         }
         selectByKeyboard: true
         selectByMouse: true
