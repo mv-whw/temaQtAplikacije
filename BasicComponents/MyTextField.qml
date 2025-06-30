@@ -12,7 +12,7 @@ Row {
     TextField{
         id: myTextField
         font.pixelSize: MyTheme.textFieldAreaTheme.label.fontSize
-        width: parent.width-parent.spacing-(clearButton.visible? clearButton.width:0)
+        width: parent.width-(clearButton.visible? (clearButton.width+parent.spacing):0)
         background: MyRectangle{
             color: MyTheme.textFieldAreaTheme.background.color
             borderWidth: (myTextField.focus? 2:1)*MyTheme.textFieldAreaTheme.background.borderWidth
